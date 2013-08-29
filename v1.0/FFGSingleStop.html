@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<h2>SingleStop USA</h2>
+
+<html>
+<head>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script
+	src="SingleStop.js">
+</script>
+</head>
+<body>
+	<form id="contactForm" method="post" action="" name="CRMForm">
+		<p>
+			First Name: <input type="text" size="65" name="firstname">
+		</p>
+		<p>
+			Last Name: <input type="text" size="65" name="lastname">
+		</p>
+		<p>
+			Student ID: <input type="text" size="65" name="studentid">
+		</p>
+
+		<p>Preferred Method of Communication</p>
+		<input type="radio" name="prefcontact" value="prefphone">Phone<br />
+		<input type="radio" name="prefcontact" value="prefemail">Email
+
+		<p>
+			Phone Number: <input type="text" size="65" name="phone">
+		</p>
+		<p>
+			E-mail Address: <input type="text" size="65" name="email">
+		</p>
+		<p>
+			School ID: <input type="text" size="65" name="schoolid">
+		</p>
+		<p>
+			Campus ID: <input type="text" size="65" name="campusid">
+		</p>
+
+		<p>
+			Preferred Day of Contact: <select name="preferredday">
+				<option>&nbsp;</option>
+				<option value="sunday">Sunday</option>
+				<option value="monday">Monday</option>
+				<option value="tuesday">Tuesday</option>
+				<option value="wednesday">Wednesday</option>
+				<option value="thursday">Thursday</option>
+				<option value="friday">Friday</option>
+				<option value="saturday">Saturday</option>
+			</select>
+		</p>
+
+
+		<p>
+			Preferred Time of Contact: <select name="hour">
+				<option>&nbsp;</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+			</select> : <select name="minute">
+				<option>&nbsp;</option>
+				<option value="00">00</option>
+				<option value="15">15</option>
+				<option value="30">30</option>
+				<option value="45">45</option>
+			</select> <select name="ampm">
+				<option>&nbsp;</option>
+				<option value="am">am</option>
+				<option value="pm">pm</option>
+			</select>
+		</p>
+
+		<p>
+			Subject: <select name="subject">
+				<option value="whatever">whatever</option>
+			</select>
+		</p>
+		<p>
+			Description:
+			<textarea cols="55" name="description">  </textarea>
+		</p>
+		<p>
+			<input type="submit" id="createContact" value="Create Contact" name="submit">
+		</p>
+	</form>
+	Create Case
+	<form id="caseForm" method="post" action="" name="CRMForm">
+		<p>
+			Title: <input type="text" size="65" name="title">
+		</p>
+		<p>
+			<input type="submit" id="createCase" value="Create Case" name="submit">
+		</p>
+	</form>
+</body>
+</html>

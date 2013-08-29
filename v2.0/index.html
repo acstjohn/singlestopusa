@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Single Stop USA</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/main.js"></script>
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script type="text/javascript"  src="js/vendor/json2.js"></script>
+        <script type="text/javascript"  src="js/vendor/XrvSvcToolkit.Samples.createRecord.js  "></script>
+        <script type="text/javascript"  src="js/vendor/XrmSvcToolkit.js?ver=<% = DateTime.Now.Ticks %>"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <h3>Welcome to the Single Stop USA Support page. Please log your issue below and our representatives will assist you.</h3>
+            <p>
+
+
+            </p>
+        <form id="contactForm" method="post" action="" name="CRMForm">
+            <p>
+
+                First Name: <input type="text" size="65" name="firstname">
+            </p>
+            <p>
+                Last Name: <input type="text" size="65" name="lastname">
+            </p>
+            <p>
+                Student ID: <input type="text" size="65" name="studentid">
+            </p>
+
+            <p>Preferred Method of Communication</p>
+            <input type="radio" name="prefcontact" value="prefphone">Phone<br />
+            <input type="radio" name="prefcontact" value="prefemail">Email
+
+            <p>
+                Phone Number: <input type="text" size="65" name="phone">
+            </p>
+            <p>
+                E-mail Address: <input type="text" size="65" name="email">
+            </p>
+            <p>
+                School ID: <input type="text" size="65" name="schoolid">
+            </p>
+            <p>
+                Campus ID: <input type="text" size="65" name="campusid">
+            </p>
+
+            <p>
+                Preferred Day of Contact: <select name="preferredday">
+                <option>&nbsp;</option>
+                <option value="sunday">Sunday</option>
+                <option value="monday">Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+                <option value="saturday">Saturday</option>
+            </select>
+            </p>
+
+
+            <p>
+                Preferred Time of Contact: <select name="hour">
+                <option>&nbsp;</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select> : <select name="minute">
+                <option>&nbsp;</option>
+                <option value="00">00</option>
+                <option value="15">15</option>
+                <option value="30">30</option>
+                <option value="45">45</option>
+            </select> <select name="ampm">
+                <option>&nbsp;</option>
+                <option value="am">am</option>
+                <option value="pm">pm</option>
+            </select>
+            </p>
+
+            <p>
+                Subject: <select name="subject">
+                <option value="whatever">whatever</option>
+            </select>
+            </p>
+            <p>
+                Description:
+                <textarea cols="55" name="description">  </textarea>
+            </p>
+            <p>
+                <input type="submit" id="submitCase" value="Submit to Support" name="submit">
+                <button onclick="onLoadCreateDemo()">TestME</button>
+            </p>
+        </form>
+
+
+    </body>
+</html>
