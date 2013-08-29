@@ -20,7 +20,7 @@ var XrmSvcToolkit = (function (window, undefined) {
     * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     *
     */
-//    var Xrm = "https://singlestopusa.crm.dynamics.com"
+        //    var Xrm = "https://singlestopusa.api.crm.dynamics.com"
     var odataEndpoint = "/XRMServices/2011/OrganizationData.svc",
         soapEndpoint = "/XRMServices/2011/Organization.svc/web";
 
@@ -53,7 +53,7 @@ var XrmSvcToolkit = (function (window, undefined) {
 
 
     var clientUrl = "https://singlestopusa.crm.dynamics.com";
-
+//    var clientUrl = "https://singlestopusa.api.crm.dynamics.com";
 
     var restErrorHandler = function (req) {
         var errorMessage;
@@ -404,7 +404,9 @@ var XrmSvcToolkit = (function (window, undefined) {
 
         req.open("POST", clientUrl + soapEndpoint, async);
         req.setRequestHeader("Accept", "application/xml, text/xml, */*");
-        req.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+
+        // look at this      http://itanex.blogspot.com/2012/02/restsharp-and-advanced-post-requests.html
+        req.setRequestHeader("Content-Type", "text/xml; charset=UTF-8");
         req.setRequestHeader("SOAPAction", "http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Execute");
 
         var soapXml = [
