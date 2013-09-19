@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Single Stop USA - Request Help</title>
+
+    var productServiceUrl = 'http://localhost:57299/ProductService.asmx?op=SaveProduct'; // Preferably write this out from server side
+
+    function beginSaveProduct(productID, productName, manufactureDate)
+    {
+    var soapMessage =
+    '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> \
+    <soap:Body> \
+        <SaveProduct xmlns="http://sh.inobido.com/"> \
+            <productID>' + productID + '</productID> \
+            <productName>' + productName + '</productName> \
+            <manufactureDate>' + manufactureDate + '</manufactureDate> \
+        </SaveProduct> \
+    </soap:Body> \
+</soap:Envelope>';
+
+    $.ajax({
+    url: productServiceUrl,
+    type: "POST",
+    dataType: "xml",
+    data: soapMessage,
+    complete: endSaveProduct,
+    contentType: "text/xml; charset=\"utf-8\""
+    });
+
+    return false;
+    }
+
+    function endSaveProduct(xmlHttpRequest, status)
+    {
+    $(xmlHttpRequest.responseXML)
+    .find('SaveProductResult')
+    .each(function()
+    {
+    var name = $(this).find('Name').text();
+    });
+    }
+
+</head>
+
+<body>
+
+<button onclick="beginSaveProduct()">TestME</button>
+
+
+</body>
+</html>
