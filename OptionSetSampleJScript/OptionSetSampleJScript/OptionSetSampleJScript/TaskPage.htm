@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta http-equiv="X-UA-Compatible" content="IE=9" />
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <title>Tasks Page</title>
+ <script src="../../ClientGlobalContext.js.aspx" type="text/javascript"></script>
+ <script src="Scripts/json2.js" type="text/javascript"></script>
+ <script src="Scripts/SDK.OptionSetSample.js" type="text/javascript"></script>
+ <script src="Scripts/SDK.MetaData.js" type="text/javascript"></script>
+ <script src="Scripts/SDK.REST.js" type="text/javascript"></script>
+ <link href="Styles/OptionSetSample.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript">
+
+  var attributes = ["ActivityId","Subject","StateCode","StatusCode","CreatedOn","RegardingObjectId","OwnerId","PriorityCode"];
+
+  var TaskListTableData = {
+   Id: "TaskList",
+   BodyId: "TaskListBody",
+   CheckboxColumn: true,
+   SearchFieldId: "SearchString",
+   CreateButtonId: "createTask",
+   DeleteButtonId: "deleteSelectedRecords",
+   Columns: [
+  { Name: "Subject" },
+  { Name: "RegardingObjectId" },
+  { Name: "PriorityCode" },
+  { Name: "StatusCode" },
+  { Name: "StateCode" },
+  { Name: "CreatedOn" }
+
+  ]
+  };
+
+  var CurrentTaskForm = {
+   Id: "CurrentTask",
+   SaveButtonId: "SaveCurrentTask",
+   CloseFormControlId: "closeFormSpan"
+  };
+
+
+
+  window.onload = function () {
+   SDK.OptionSetSample.Entity = "Task";
+   SDK.OptionSetSample.Columnset = attributes;
+   SDK.OptionSetSample.PrimaryIdAttribute = "ActivityId";
+   SDK.OptionSetSample.TextSearchAttribute = "Subject";
+   SDK.OptionSetSample.PrimaryAttribute = "Subject";
+   SDK.OptionSetSample.TableData = TaskListTableData,
+   SDK.OptionSetSample.FormData = CurrentTaskForm;
+
+
+   //Get the Attribute metadata
+   SDK.OptionSetSample.getAttributeMetadataCollection.Execute();
+
+  }
+
+ </script>
+</head>
+<body>
+ <ul id="message">
+ </ul>
+ <div>
+  <button id="createTask">
+   Create</button>
+  <button id="deleteSelectedRecords" disabled="disabled">
+   Delete Selected Tasks</button>
+  <span id="searchBy">Search by Subject :</span><input id="SearchString" type="text" />
+  <table id="TaskList" class="RecordList" />
+ </div>
+ <div id="CurrentTask" class="editForm" >
+  <span id="closeFormSpan" class="closeFormSpan">X</span>
+  <!--  Only Boolean, Picklist, Status, and String attribute types are supported in this sample.-->
+  <div id="SubjectField">
+  </div>
+  <div id="PriorityCodeField">
+  </div>
+  <div id="StatusCodeField">
+  </div>
+  <button id="SaveCurrentTask" disabled="disabled">
+   Save</button>
+ </div>
+</body>
+</html>

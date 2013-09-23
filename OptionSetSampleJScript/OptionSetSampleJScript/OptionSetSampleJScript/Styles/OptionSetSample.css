@@ -1,0 +1,26 @@
+﻿body { font-family:Segoe UI;
+       font-size:small;
+}
+tbody > tr{ border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black;}
+tbody > tr:first-child{ border-top:1px solid black;}
+thead > tr{ border-top:1px solid black; border-left:1px solid black; border-right:1px solid black;}
+th{border-left:1px solid black; border-bottom:2px solid black; }
+td{border-left:1px solid black; padding-left:3px; padding-right:3px;}
+tr.selectedRow{background-color:AliceBlue;}
+.RecordList
+{cursor: pointer; border-collapse: collapse;}
+.closeFormSpan
+{float: right; cursor: pointer;}
+
+.editForm
+{ background-color:AliceBlue; 
+  border:solid 1px black;  
+  position:absolute; 
+  display:none; 
+  width:300px; 
+  z-index:1; 
+  filter:alpha(opacity=100);
+  padding:10px;
+  }
+  .MessageButton{ float:right;}
+  .Message{ background-color:Yellow; position:relative; height:30px;}

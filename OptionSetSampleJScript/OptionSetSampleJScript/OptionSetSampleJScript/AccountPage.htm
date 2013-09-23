@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta http-equiv="X-UA-Compatible" content="IE=9" />
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <title>Accounts Page</title>
+ <script src="../../ClientGlobalContext.js.aspx" type="text/javascript"></script>
+ <script src="Scripts/json2.js" type="text/javascript"></script>
+ <script src="Scripts/SDK.OptionSetSample.js" type="text/javascript"></script>
+ <script src="Scripts/SDK.MetaData.js" type="text/javascript"></script>
+ <script src="Scripts/SDK.REST.js" type="text/javascript"></script>
+ <link href="Styles/OptionSetSample.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript">
+
+  var attributes = [
+   "AccountId",
+   "Name",
+   "PrimaryContactId",
+   "AccountCategoryCode",
+   "OwnershipCode",
+   "DoNotPhone",
+   "StatusCode",
+   "StateCode",
+   "OwnerId",
+   "CreatedOn",
+   "Telephone1",
+   "AccountNumber",
+   "EMailAddress1",
+   "PreferredContactMethodCode"];
+
+  var AccountListTableData = {
+   Id: "AccountList",
+   BodyId: "AccountListBody",
+   CheckboxColumn: true, //Set to true to allow for deleting records.
+   SearchFieldId: "SearchString",
+   CreateButtonId: "createAccount",
+   DeleteButtonId: "deleteSelectedRecords",
+   Columns: [
+  { Name: "Name" },
+  { Name: "PrimaryContactId" },
+  { Name: "AccountCategoryCode" },
+  { Name: "OwnershipCode" },
+  { Name: "DoNotPhone" },
+  { Name: "StatusCode" },
+  { Name: "StateCode" },
+  { Name: "OwnerId" },
+  { Name: "CreatedOn"}]
+  };
+
+  var CurrentAccountForm = {
+   Id: "CurrentAccount",
+   SaveButtonId: "SaveCurrentAccount",
+   CloseFormControlId: "closeFormSpan"
+  };
+
+  window.onload = function () {
+   SDK.OptionSetSample.Entity = "Account";
+   SDK.OptionSetSample.Columnset = attributes;
+   SDK.OptionSetSample.PrimaryIdAttribute = "AccountId";
+   SDK.OptionSetSample.TextSearchAttribute = "Name";
+   SDK.OptionSetSample.PrimaryAttribute = "Name";
+   SDK.OptionSetSample.TableData = AccountListTableData,
+   SDK.OptionSetSample.FormData = CurrentAccountForm;
+
+   //Get the Attribute metadata
+   SDK.OptionSetSample.getAttributeMetadataCollection.Execute();
+
+  }
+
+ </script>
+</head>
+<body>
+ <ul id="message">
+ </ul>
+ <div>
+   <button id="createAccount">
+    Create</button>
+   <button id="deleteSelectedRecords" disabled="disabled">
+    Delete Selected Accounts</button>
+   <span id="searchBy">Search by Name :</span><input id="SearchString" type="text" />
+  <table id="AccountList" class="RecordList" />
+ </div>
+ <div id="CurrentAccount" class="editForm">
+  <span id="closeFormSpan" class="closeFormSpan">X</span>
+  <!--  Only Boolean, Picklist, Status, and String attribute types can be edited in this sample.-->
+  <div id="NameField">
+  </div>
+  <div id="AccountNumberField">
+  </div>
+  <div id="AccountCategoryCodeField">
+  </div>
+  <div id="DoNotPhoneField">
+  </div>
+  <div id="Telephone1Field">
+  </div>
+  <div id="PreferredContactMethodCodeField">
+  </div>
+  <div id="EMailAddress1Field">
+  </div>
+  <div id="StatusCodeField">
+  </div>
+  <button id="SaveCurrentAccount" disabled="disabled">
+   Save</button>
+ </div>
+</body>
+</html>
